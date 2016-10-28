@@ -7,8 +7,8 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const compression = require('compression');
 
-const alunosRoute = require('../api/routes/aluno-route');
-const docentesRoute = require('../api/routes/docente-route');
+const alunosRoute = require('./api/routes/aluno-route');
+const docentesRoute = require('./api/routes/docente-route');
 
 let PORT = process.env.PORT || '3000';
 let DOMAIN = process.domain || 'localhost';
@@ -18,15 +18,15 @@ let API_V1 = '/api/v1/';
 const server = express();
 
 server.set('port', PORT);
-server.set('views', path.join(__dirname, '../web/dist'));
+server.set('views', path.join(__dirname, './web/dist'));
 server.set('view engine', 'pug');
 
 server.use(compression());
-server.use(favicon(path.join(__dirname, '../web/img', 'mean-ico.ico')));
+server.use(favicon(path.join(__dirname, './web/img', 'mean-ico.ico')));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
 server.use(cookieParser());
-server.use(express.static(path.join(__dirname, '../web')));
+server.use(express.static(path.join(__dirname, './web')));
 
 server.use(API_V1 + 'alunos', alunosRoute);
 server.use(API_V1 + 'docentes', docentesRoute);
