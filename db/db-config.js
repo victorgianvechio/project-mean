@@ -3,6 +3,8 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
+//const dbURI = 'mongodb://pmdb:123456@ds137267.mlab.com:37267/project-mean';
+//const dbURI = 'mongodb://project-mean:agQGOjU5PAi5neOiOkc2ypXhrCfpGS78REitrRpfUnmipQCO5nqZfavG2NEAxSzl0vTJ9D2VEFKZlmOuc8rHVw==@project-mean.documents.azure.com:10250/?ssl=true/project-mean';
 const dbURI = 'mongodb://localhost/project-mean';
 
 mongoose.connect(dbURI);
