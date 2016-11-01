@@ -1,6 +1,6 @@
 'use strict';
 
-const mongoose = require('../../db/db-config');
+const mongoose = require('../../db/db-connection');
 const Fields = require('../fields/aluno-fields');
 
 const Schema = mongoose.Schema;

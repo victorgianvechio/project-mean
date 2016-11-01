@@ -1,6 +1,6 @@
 'use strict';
 
-const mongoose = require('../../db/db-config');
+const mongoose = require('../../db/db-connection');
 const Schema = require('../schemas/docente-schema');
 const Docente = mongoose.model('docente', Schema);
 

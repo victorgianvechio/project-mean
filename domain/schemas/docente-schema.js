@@ -1,6 +1,6 @@
 'use strict';
 
-const mongoose = require('../../db/db-config');
+const mongoose = require('../../db/db-connection');
 const Fields = require('../fields/docente-fields');
 
 const Schema = mongoose.Schema;
