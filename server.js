@@ -13,7 +13,7 @@ const docentesRoute = require('./api/routes/docente-route');
 let PORT = process.env.PORT || '3000';
 let DOMAIN = process.domain || 'localhost';
 
-let API_V1 = '/api/v1/';
+//let API_V1 = '/api/v1/';
 
 const server = express();
 
@@ -28,8 +28,8 @@ server.use(bodyParser.urlencoded({extended: true}));
 server.use(cookieParser());
 server.use(express.static(path.join(__dirname, './web')));
 
-server.use(API_V1 + 'alunos', alunosRoute);
-server.use(API_V1 + 'docentes', docentesRoute);
+server.use('/api/v1/alunos', alunosRoute);
+server.use('/api/v1/docentes', docentesRoute);
 
 server.get('/', (req, res) => {
   res.redirect('/login');
