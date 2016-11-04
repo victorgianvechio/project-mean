@@ -3,12 +3,12 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-/*const dbURI = require('./db-uri');
+const dbURI = require('./db-uri');
 const options = require('./db-options');
-mongoose.connect(dbURI, options);*/
+mongoose.connect(dbURI, options);
 
-const dbURI = 'mongodb://localhost/project-mean';
-mongoose.connect(dbURI);
+/*const dbURI = 'mongodb://localhost/project-mean';
+mongoose.connect(dbURI);*/
 
 mongoose.connection.on('connected', () => {
   console.log('Mongoose default connection connected to ' + dbURI);

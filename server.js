@@ -13,7 +13,7 @@ const docentesRoute = require('./api/routes/docente-route');
 let PORT = process.env.PORT || '3000';
 let DOMAIN = process.domain || 'localhost';
 
-let API_V1 = '/api/v1/';
+//let API_V1 = '/api/v1/';
 
 const server = express();
 
@@ -28,8 +28,8 @@ server.use(bodyParser.urlencoded({extended: true}));
 server.use(cookieParser());
 server.use(express.static(path.join(__dirname, './web')));
 
-server.use(API_V1 + 'alunos', alunosRoute);
-server.use(API_V1 + 'docentes', docentesRoute);
+server.use('/api/v1/alunos', alunosRoute);
+server.use('/api/v1/docentes', docentesRoute);
 
 server.get('/', (req, res) => {
   res.redirect('/login');
@@ -45,6 +45,7 @@ server.get('/alunos', (req, res) => {
 
 server.get('/docs/api/v1', (req, res) => {
   res.redirect('//project-mean-api-docs.azurewebsites.net/');
+  //res.redirect('//localhost:8080');
 });
 
 server.listen(PORT, () => {

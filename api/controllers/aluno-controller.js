@@ -6,7 +6,7 @@ const controller = {
   getAlunos: (req, res) => {
     return alunoModel.find(req, res, '');
   },
-  
+
   getAlunoByRa: (req, res) => {
     return alunoModel.findByRa(req, res, req.params);
   },
