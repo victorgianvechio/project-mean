@@ -1,10 +1,9 @@
 'use strit';
 
-const sha1 = require('../../services/sha1-service');
-
 module.exports = (schema) => {
     schema.pre('save', function(next) {
-        this.senha = sha1.encode(this.senha);
+        schema.path('createdAt').expires('1m');
+        // /console.log(String(this.qtdDias) + 'm');
         next();
     });
 };

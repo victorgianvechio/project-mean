@@ -7,9 +7,6 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const compression = require('compression');
 
-const alunosRoute = require('./api/routes/aluno-route');
-const docentesRoute = require('./api/routes/docente-route');
-
 let PORT = process.env.PORT || '3000';
 let DOMAIN = process.domain || 'localhost';
 
@@ -28,8 +25,9 @@ server.use(bodyParser.urlencoded({extended: true}));
 server.use(cookieParser());
 server.use(express.static(path.join(__dirname, './web')));
 
-server.use('/api/v1/alunos', alunosRoute);
-server.use('/api/v1/docentes', docentesRoute);
+server.use('/api/v1/alunos', require('./api/routes/aluno-route'));
+server.use('/api/v1/docentes', require('./api/routes/docente-route'));
+server.use('/api/v1/eventos', require('./api/routes/evento-route'));
 
 server.get('/', (req, res) => {
   res.redirect('/login');

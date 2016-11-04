@@ -16,5 +16,6 @@ const _schema = new Schema(Fields, {
 });
 
 require('./middlewares/middleware-pre-save-senha')(_schema);
+require('./middlewares/middleware-pos-delete-evento')(_schema);
 
 module.exports = _schema;
