@@ -12,8 +12,15 @@ const gzip = require('gulp-gzip');
 //const tar = require('gulp-tar');
 
 /* ##### pug to HTML ##### */
-gulp.task('pug-login', () => {
-    gulp.src('../../web/views/login/login.pug')
+gulp.task('pug-login-aluno', () => {
+    gulp.src('../../web/views/login/login-aluno.pug')
+    .pipe(pug({pretty: false}))
+    .pipe(rename({extname: '.pug', suffix: '-min'}))
+    .pipe(gulp.dest('../../web/dist'));
+});
+
+gulp.task('pug-login-docente', () => {
+    gulp.src('../../web/views/login/login-docente.pug')
     .pipe(pug({pretty: false}))
     .pipe(rename({extname: '.pug', suffix: '-min'}))
     .pipe(gulp.dest('../../web/dist'));
@@ -79,6 +86,6 @@ gulp.task('gzip', () => {
     .pipe(gulp.dest('./gulp-dest/mins/ex2'));
 });*/
 
-gulp.task('default', ['pug-login', 'pug-aluno']);
+gulp.task('default', ['pug-login-aluno', 'pug-login-docente', 'pug-aluno']);
 //gulp.task('default', ['pug-login', 'watch']);
 //gulp.task('default', ['pug']);

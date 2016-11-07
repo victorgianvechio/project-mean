@@ -12,5 +12,6 @@ module.exports = {
   findByRa: actions.findByRa,
   update: actions.update,
   remove: actions.remove,
-  verifyPass: actions.verifyPass
+  verifyPass: actions.verifyPass,
+  authAluno: actions.authAluno
 };

@@ -9,11 +9,15 @@ module.exports = (server) => {
 
     // WEB APP ROUTES
     server.get('/', (req, res) => {
-        res.redirect('/login');
+        res.redirect('/login-aluno');
     });
 
-    server.get('/login', (req, res) => {
-        res.render('login-min');
+    server.get('/login-aluno', (req, res) => {
+        res.render('login-aluno-min');
+    });
+
+    server.get('/login-docente', (req, res) => {
+        res.render('login-docente-min');
     });
 
     server.get('/alunos', (req, res) => {
