@@ -15,6 +15,4 @@ const _schema = new Schema(Fields, {
     id: false
 });
 
-_schema.path('createdAt').expires('1m');
-
 module.exports = _schema;
