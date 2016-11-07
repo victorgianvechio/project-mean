@@ -5,7 +5,7 @@ const dbURI = require('./db-uri');
 const options = require('./db-options');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(dbURI.localhost, options.localhost);
+mongoose.connect(dbURI.mongo, options.mongo);
 
 mongoose.connection.on('connected', () => {
     console.log('Mongoose default connection connected to ' + dbURI.localhost);

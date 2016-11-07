@@ -24,7 +24,7 @@ module.exports = {
         user: '',
         pass: ''
     },
-    
+
     localhost: {
         host: 'localhost',
         db: 'project-mean'
