@@ -8,8 +8,8 @@ const compression = require('compression');
 
 module.exports = (server, express) => {
 
-    let PORT = process.env.PORT || '3000';
-    let DOMAIN = process.domain || 'localhost';
+    const PORT = process.env.PORT || '3000';
+    const DOMAIN = process.domain || 'localhost';
 
     server.set('port', PORT);
     server.set('views', path.join(__dirname, '../web/dist'));
