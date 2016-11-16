@@ -29,4 +29,8 @@ router.post('/verifyPass/:ra', (req, res) => {
   alunoController.verifyPass(req, res);
 });
 
+router.post('/authAluno/:email', (req, res) => {
+  alunoController.authAluno(req, res);
+});
+
 module.exports = router;

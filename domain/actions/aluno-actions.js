@@ -31,7 +31,37 @@ module.exports = (Aluno) => {
         },
 
         authAluno: (req, res, query, pass) => {
-            Aluno.findOne(query, (err, data) => callback._200_verifyPass(err, data, res, pass));
+            /*Aluno.findOne(query, (err, data) => {
+
+                if(err) {
+                  console.log('Erro: ', err);
+                  return res.end(401, JSON.stringify(err));
+                }
+
+                res.writeHead(200, {'Content-Type': 'application/json'});
+                return res.end(JSON.stringify(data.verifyPass(pass)));
+            });*/
+            Aluno.findOne(query, (err, data) => {
+
+                if(err) {
+                  console.log('Erro: ', err);
+                  return res.end(401, JSON.stringify(err));
+                }
+
+                if(data === undefined || data === null) {
+                    res.writeHead(404, {'Content-Type': 'application/json'});
+                    return res.end(JSON.stringify('Recurso não encontrado.'));
+                }
+
+                if(data.authLogin(pass)) {
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    return res.end(JSON.stringify('true'));
+                }
+                else {
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    return res.end(JSON.stringify('false'));
+                }
+            });
         }
 
     };

@@ -29,6 +29,7 @@ const controller = {
 
     authAluno: (req, res) => {
         return alunoModel.authAluno(req, res, req.params, req.body['senha']);
+        //return alunoModel.authLogin(req.body['email'], req.body['senha']);
     }
 };
 
