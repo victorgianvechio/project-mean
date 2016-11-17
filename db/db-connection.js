@@ -5,10 +5,10 @@ const dbURI = require('./db-uri');
 const options = require('./db-options');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(dbURI.mongo, options.mongo);
+mongoose.connect(dbURI.localhost, options.localhost);
 
 mongoose.connection.on('connected', () => {
-  console.log('Mongoose default connection connected to ' + dbURI.mongo);
+  console.log('Mongoose default connection connected to ' + dbURI.localhost);
 });
 mongoose.connection.on('error', (err) => {
   console.log('Mongoose default connection error: ' + err);

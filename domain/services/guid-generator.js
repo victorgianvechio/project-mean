@@ -6,5 +6,5 @@ function s4() {
 
 module.exports = () => {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4()
-    + s4() + s4();
+  + s4() + s4();
 };
