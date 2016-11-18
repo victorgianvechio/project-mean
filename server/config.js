@@ -10,7 +10,7 @@ module.exports = (server, express) => {
 
   const PORT = process.env.PORT || '3000';
   const DOMAIN = process.domain || 'localhost';
-  
+
   server.set('port', PORT);
   server.set('views', path.join(__dirname, '../web/dist'));
   server.set('view engine', 'pug');

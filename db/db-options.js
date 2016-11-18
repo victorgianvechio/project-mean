@@ -15,17 +15,17 @@ module.exports = {
   },
 
   mySql: {
-    user: '',
-    pass: '',
+    user: config.mySql.user,
+    pass: config.mySql.user,
   },
 
   oracle: {
-    user: '',
-    pass: '',
+    user: config.oracle.user,
+    pass: config.oracle.user,
   },
 
   localhost: {
-    user: '',
-    pass: '',
+    user: config.localhost.user,
+    pass: config.localhost.user,
   }
 };

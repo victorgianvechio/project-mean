@@ -6,28 +6,28 @@ module.exports = (Docente) => {
 
   const actions = {
 
-    create: (req, res, docente) => {
-      Docente.create(docente, (err, data) => callback._201(err, data, res));
+    create: (req, res) => {
+      Docente.create( req.body, (err, data) => callback._201(err, data, res));
     },
 
-    find: (req, res, query) => {
-      Docente.find(query, (err, data) => callback._200(err, data, res));
+    find: (req, res) => {
+      Docente.find(req.params, (err, data) => callback._200(err, data, res));
     },
 
-    findByCod: (req, res, query) => {
-      Docente.findOne(query, (err, data) => callback._200(err, data, res));
+    findByCod: (req, res) => {
+      Docente.findOne(req.params, (err, data) => callback._200(err, data, res));
     },
 
-    update: (req, res, query, docente) => {
-      Docente.update(query, docente, (err, data) => callback._204(err, data, res));
+    update: (req, res) => {
+      Docente.update(req.params, req.body, (err, data) => callback._204(err, data, res));
     },
 
-    remove: (req, res, query) => {
-      Docente.remove(query, (err, data) => callback._204(err, data, res));
+    remove: (req, res) => {
+      Docente.remove(req.params, (err, data) => callback._204(err, data, res));
     },
 
-    verifyPass: (req, res, query, pass) => {
-      Docente.findOne(query, (err, data) => callback._200_verifyPass(err, data, res, pass));
+    verifyPass: (req, res) => {
+      Docente.findOne(req.params, (err, data) => callback._200_verifyPass(err, data, res, req.body['senha']));
     }
   };
   return actions;

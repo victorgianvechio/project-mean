@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('../../db/db-connection');
-const Schema = require('../schemas/evento-schema');
+const Schema = require('./evento-schema');
 const Evento = mongoose.model('evento', Schema);
 
 const actions = require('../actions/evento-actions')(Evento);

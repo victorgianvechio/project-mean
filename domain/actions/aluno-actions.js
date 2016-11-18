@@ -5,33 +5,33 @@ const callback = require('./callbacks/callback-http');
 module.exports = (Aluno) => {
 
   const actions = {
-    
-    create: (req, res, aluno) => {
-      Aluno.create(aluno, (err, data) => callback._201(err, data, res));
+
+    create: (req, res) => {
+      Aluno.create(req.body, (err, data) => callback._201(err, data, res));
     },
 
-    find: (req, res, query) => {
-      Aluno.find(query, (err, data) => callback._200(err, data, res));
+    find: (req, res) => {
+      Aluno.find(req.params, (err, data) => callback._200(err, data, res));
     },
 
-    findByRa: (req, res, query) => {
-      Aluno.findOne(query, (err, data) => callback._200(err, data, res));
+    findByRa: (req, res) => {
+      Aluno.findOne(req.params, (err, data) => callback._200(err, data, res));
     },
 
-    update: (req, res, query, aluno) => {
-      Aluno.update(query, aluno, (err, data) => callback._204(err, data, res));
+    update: (req, res) => {
+      Aluno.update(req.params, req.body, (err, data) => callback._204(err, data, res));
     },
 
-    remove: (req, res, query) => {
-      Aluno.remove(query, (err, data) => callback._204(err, data, res));
+    remove: (req, res) => {
+      Aluno.remove(req.params, (err, data) => callback._204(err, data, res));
     },
 
-    verifyPass: (req, res, query, pass) => {
-      Aluno.findOne(query, (err, data) => callback._200_verifyPass(err, data, res, pass));
+    verifyPass: (req, res) => {
+      Aluno.findOne(req.params, (err, data) => callback._200_verifyPass(err, data, res, req.body['senha']));
     },
 
-    authAluno: (req, res, query, pass) => {
-      Aluno.findOne(query, (err, data) => {
+    authAluno: (req, res) => {
+      Aluno.findOne(req.params, (err, data) => {
 
         if(err) {
           console.log('Erro: ', err);
@@ -44,7 +44,7 @@ module.exports = (Aluno) => {
           return res.end(JSON.stringify('Recurso não encontrado.'));
         }
 
-        if(data.authLogin(pass)) {
+        if(data.authLogin(req.body['senha'])) {
           res.writeHead(200, {'Content-Type': 'application/json'});
           return res.end(JSON.stringify('true'));
         }

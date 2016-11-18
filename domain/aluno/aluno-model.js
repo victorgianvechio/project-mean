@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('../../db/db-connection');
-const Schema = require('../schemas/aluno-schema');
+const Schema = require('./aluno-schema');
 const Aluno = mongoose.model('aluno', Schema);
 
 const actions = require('../actions/aluno-actions')(Aluno);

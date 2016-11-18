@@ -12,21 +12,23 @@ module.exports = {
   mySql: {
     host: '',
     port: 0,
-    db: '',
-    user: '',
+    db: 'project-mean',
+    user: 'project-mean',
     pass: ''
   },
 
   oracle: {
     host: '',
     port: 0,
-    db: '',
-    user: '',
+    db: 'project-mean',
+    user: 'project-mean',
     pass: ''
   },
 
   localhost: {
     host: 'localhost',
-    db: 'project-mean'
+    db: 'project-mean',
+    user: '',
+    pass: ''
   }
 };

@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('../../db/db-connection');
-const Fields = require('../fields/docente-fields');
+const Fields = require('./docente-fields');
 
 const Schema = mongoose.Schema;
 
@@ -15,6 +15,6 @@ const _schema = new Schema(Fields, {
   id: false
 });
 
-require('./middlewares/middleware-pre-save-senha')(_schema);
+require('../middlewares/middleware-pre-save-senha')(_schema);
 
 module.exports = _schema;

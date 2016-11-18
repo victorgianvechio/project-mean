@@ -7,11 +7,11 @@ module.exports = {
   + config.mongo.port + '/'
   + config.mongo.db,
 
-  mySql: 'mongodb://'  + config.mySql.host + ':'
+  mySql: 'mysql://'  + config.mySql.host + ':'
   + config.mySql.port + '/'
   + config.mySql.db,
 
-  oracle: 'mongodb://' + config.oracle.host + ':'
+  oracle: 'orcl://' + config.oracle.host + ':'
   + config.oracle.port + '/'
   + config.oracle.db,
 

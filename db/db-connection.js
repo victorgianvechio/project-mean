@@ -1,14 +1,14 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const dbURI = require('./db-uri');
-const options = require('./db-options');
+const dbURI = require('./db-uri').localhost;
+const options = require('./db-options').localhost;
 
 mongoose.Promise = global.Promise;
-mongoose.connect(dbURI.localhost, options.localhost);
+mongoose.connect(dbURI, options);
 
 mongoose.connection.on('connected', () => {
-  console.log('Mongoose default connection connected to ' + dbURI.localhost);
+  console.log('Mongoose default connection connected to ' + dbURI);
 });
 mongoose.connection.on('error', (err) => {
   console.log('Mongoose default connection error: ' + err);
