@@ -8,7 +8,7 @@ const compression = require('compression');
 
 module.exports = (server, express) => {
 
-  const PORT = process.env.PORT || '3000';
+  const PORT = process.env.PORT || '8080';
   const DOMAIN = process.domain || 'localhost';
 
   server.set('port', PORT);

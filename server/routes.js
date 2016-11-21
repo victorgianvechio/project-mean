@@ -3,9 +3,9 @@
 module.exports = (server, express) => {
 
   // API ROUTES
-  server.use('/api/v1/alunos', require('../api/aluno/aluno-routes')(express));
+/*  server.use('/api/v1/alunos', require('../api/aluno/aluno-routes')(express));
   server.use('/api/v1/docentes', require('../api/docente/docente-routes')(express));
-  server.use('/api/v1/eventos', require('../api/evento/evento-routes')(express));
+  server.use('/api/v1/eventos', require('../api/evento/evento-routes')(express));*/
 
   // WEB APP ROUTES
   server.get('/', (req, res) => {
