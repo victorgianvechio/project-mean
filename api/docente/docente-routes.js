@@ -12,6 +12,7 @@ module.exports = (express) => {
   routes.put('/:codDocente', docenteModel.update);
   routes.delete('/:codDocente', docenteModel.remove);
   routes.post('/verifyPass/:codDocente', docenteModel.verifyPass);
+  routes.post('/authDocente/:email', docenteModel.authDocente);
 
   return router;
 };

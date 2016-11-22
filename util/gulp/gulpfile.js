@@ -13,24 +13,31 @@ const gzip = require('gulp-gzip');
 
 /* ##### pug to HTML ##### */
 gulp.task('pug-login-aluno', () => {
-  gulp.src('../../web/views/login/login-aluno.pug')
+  gulp.src('../../web/login/login-aluno.pug')
   .pipe(pug({pretty: false}))
   .pipe(rename({extname: '.pug', suffix: '-min'}))
-  .pipe(gulp.dest('../../web/dist'));
+  .pipe(gulp.dest('../../web/dist/view'));
 });
 
 gulp.task('pug-login-docente', () => {
-  gulp.src('../../web/views/login/login-docente.pug')
+  gulp.src('../../web/login/login-docente.pug')
   .pipe(pug({pretty: false}))
   .pipe(rename({extname: '.pug', suffix: '-min'}))
-  .pipe(gulp.dest('../../web/dist'));
+  .pipe(gulp.dest('../../web/dist/view'));
 });
 
 gulp.task('pug-aluno', () => {
-  gulp.src('../../web/views/aluno/aluno.pug')
+  gulp.src('../../web/aluno/aluno.pug')
   .pipe(pug({pretty: false}))
   .pipe(rename({extname: '.pug', suffix: '-min'}))
-  .pipe(gulp.dest('../../web/dist'));
+  .pipe(gulp.dest('../../web/dist/view'));
+});
+
+gulp.task('pug-docente', () => {
+  gulp.src('../../web/docente/docente.pug')
+  .pipe(pug({pretty: false}))
+  .pipe(rename({extname: '.pug', suffix: '-min'}))
+  .pipe(gulp.dest('../../web/dist/view'));
 });
 
 /* ##### altera arquivo conforme salva ##### */
@@ -86,6 +93,6 @@ gulp.src('./gulp-dest/mins/ex2/aluno-controller.min.js')
 .pipe(gulp.dest('./gulp-dest/mins/ex2'));
 });*/
 
-gulp.task('default', ['pug-login-aluno', 'pug-login-docente', 'pug-aluno']);
+gulp.task('default', ['pug-login-aluno', 'pug-login-docente', 'pug-aluno', 'pug-docente']);
 //gulp.task('default', ['pug-login', 'watch']);
 //gulp.task('default', ['pug']);

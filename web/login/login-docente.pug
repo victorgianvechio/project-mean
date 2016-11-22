@@ -1,27 +1,29 @@
 doctype html
-html
+html(ng-app='app')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
 
-    link(rel='stylesheet', href='css/login/login-normalize.css')
-    link(rel='stylesheet', href='css/login/login.css')
-    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='login/css/login-normalize.css')
+    link(rel='stylesheet', href='login/css/login.css')
+    link(rel='stylesheet', href='dist/css/bootstrap.min.css')
 
-    script(async, defer, src='js/login/login-prefixfree.min.js')
-    script(async, defer, src='js/login/login-docente-controller.js')
+    script(src='dist/js/angular.min.js')
+    script(src='dist/js/app/app.js')
+    script(async, defer, src='login/js/login-prefixfree.min.js')
+    script(src='login/js/login-docente-controller.js')
 
     title Login
 
   body
-    .login
+    .login(ng-controller='login-docente-controller')
       h1 Área Docente
       form(id='login-form')
         input.input-login(id='email', type='email', placeholder='exemplo@univem.edu.br', required='required', pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
         input.input-login(id='senha', type='password', placeholder='senha', required='required')
-        button.btn.btn-primary.btn-block.btn-large(id='submit', type='submit', onClick='logar()') Entrar
+        button.btn.btn-primary.btn-block.btn-large(id='submit', type='submit', ng-click='logar()') Entrar
         .logo-mean
-          img(src='img/mean-logo.png', height='40', width='37', alt='mean logo')
+          img(src='dist/img/mean-logo.png', height='40', width='37', alt='mean logo')
       .alert-msg.alert.alert-danger.fade.in(id='msg', style='display: none')
         a.close(href='#', data-dismiss='alert', aria-label='close') ×
         strong Erro!

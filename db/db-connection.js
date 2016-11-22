@@ -1,8 +1,8 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const dbURI = require('./db-uri').mongo;
-const options = require('./db-options').mongo;
+const dbURI = require('./db-uri').localhost;
+const options = require('./db-options').localhost;
 
 mongoose.Promise = global.Promise;
 mongoose.connect(dbURI, options);

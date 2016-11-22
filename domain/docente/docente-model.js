@@ -12,5 +12,6 @@ module.exports = {
   findByCod: actions.findByCod,
   update: actions.update,
   remove: actions.remove,
-  verifyPass: actions.verifyPass
+  verifyPass: actions.verifyPass,
+  authDocente: actions.authDocente
 };

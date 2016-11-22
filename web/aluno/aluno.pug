@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    link(rel='stylesheet', href='dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='aluno/css/aluno.css')
+    link(rel='stylesheet', href='aluno/css/aluno-normalize.css')
+
+    script(src='dist/js/angular.min.js')
+    script(src='dist/js/app/app.js')
+    script(src='aluno/js/aluno-controller.js')
+
+    title Eventos
+
+  body
+    div(ng-app='app')
+      h1 Eventos
+      div(ng-controller='aluno-controller')
+        table.table.table-bordered.table-hover.table-aluno
+          tr
+            th Título
+            th Descrição
+            th Data Evento
+            th Qtd. Dias
+          tr(ng-repeat='aluno in alunos')
+            td {{aluno.titulo}}
+            td {{aluno.descricao}}
+            td {{aluno.dtaEvento}}
+            td {{aluno.qtdDias}}

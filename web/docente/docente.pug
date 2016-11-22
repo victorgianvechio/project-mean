@@ -1,0 +1,45 @@
+doctype html
+html(ng-app='app')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    link(rel='stylesheet', href='docente/css/docente.css')
+
+    script(src='dist/js/angular.min.js')
+    script(src='dist/js/app/app.js')
+    script(src='docente/js/docente-controller.js')
+
+    title Cadastro de eventos
+    
+  body(ng-controller='docente-controller')
+    #contact-form
+      div
+        h1 Área do Docente
+        h4 Cadastre seus eventos para consulta de seus alunos
+      p#failure Preencha todos os campos!
+      p#success Seu evento foi cadastrado!
+      form(id='evento-form')
+        div
+          label(for='name')
+            span.required Evento:
+            input#titulo(type='text', name='name', value='', placeholder='Nome do evento', required='required', tabindex='1', autofocus='autofocus')
+        div
+          label(for='message')
+            span.required Descrição
+            textarea#descricao(name='message', placeholder='Inclua a descrição do evento', tabindex='2', required='required')
+        div
+          label(for='dateEvento')
+            span.required Data Evento
+            input#dtaEvento(name='dtaEvento', placeholder='22/11/2016', tabindex='3', required='required')
+          label(for='qtdDias')
+            span.required Quantidade de Dias
+            input#qtdDias(name='qtdDias', placeholder='3', tabindex='4', required='required')
+        div
+          label(for='subject')
+            span Curso:
+            select#curso(name='subject', tabindex='5')
+              option#bsi(value='90') Sistemas de Informação
+              option#bcc(value='25') Ciências da Computação
+        div
+          button#submit(name='submit', type='submit', ng-click='cadastrar()') Cadastrar

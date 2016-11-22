@@ -28,7 +28,33 @@ module.exports = (Docente) => {
 
     verifyPass: (req, res) => {
       Docente.findOne(req.params, (err, data) => callback._200_verifyPass(err, data, res, req.body['senha']));
+    },
+
+    authDocente: (req, res) => {
+      Docente.findOne(req.params, (err, data) => {
+
+        if(err) {
+          console.log('Erro: ', err);
+          res.writeHead(401, {'Content-Type': 'application/json'});
+          return res.end(JSON.stringify(err));
+        }
+
+        if(data === undefined || data === null) {
+          res.writeHead(404, {'Content-Type': 'application/json'});
+          return res.end(JSON.stringify('Recurso não encontrado.'));
+        }
+
+        if(data.authLogin(req.body['senha'])) {
+          res.writeHead(200, {'Content-Type': 'application/json'});
+          return res.end(JSON.stringify('true'));
+        }
+        else {
+          res.writeHead(200, {'Content-Type': 'application/json'});
+          return res.end(JSON.stringify('false'));
+        }
+      });
     }
+
   };
   return actions;
 };

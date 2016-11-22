@@ -12,11 +12,11 @@ module.exports = (server, express) => {
   const DOMAIN = process.domain || 'localhost';
 
   server.set('port', PORT);
-  server.set('views', path.join(__dirname, '../web/dist'));
+  server.set('views', path.join(__dirname, '../web/dist/view'));
   server.set('view engine', 'pug');
 
   server.use(compression());
-  server.use(favicon(path.join(__dirname, '../web/img', 'mean-ico.ico')));
+  server.use(favicon(path.join(__dirname, '../web/dist/img', 'mean-ico.ico')));
   server.use(bodyParser.json());
   server.use(bodyParser.urlencoded({extended: true}));
   server.use(cookieParser());

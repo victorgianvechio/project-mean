@@ -16,5 +16,7 @@ const _schema = new Schema(Fields, {
 });
 
 require('../middlewares/middleware-pre-save-senha')(_schema);
+require('../services/verifyPass')(_schema);
+require('../services/authLogin')(_schema);
 
 module.exports = _schema;
